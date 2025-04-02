@@ -1,0 +1,35 @@
+﻿@model List<MVC_QuestBook.Models.MessageModel>
+
+<div style="width:880px; height:600px; margin-left:auto; margin-right:auto;margin-top:100px">
+    <div style="width: 880px; height: 50px;">
+        <div style="border:2px solid #000;width:880px;height: 50px; margin-left:auto">
+            <h1 style="margin-top:5px" align="center">Guestbook</h1>
+        </div>
+    </div>
+    <div style="width: 200px; height: 550px; float:left;margin-top:2px" >
+        <form method="post" action="/contact-us">
+            <div style="border:2px solid #000;width:200px;height:550px;margin-left:auto">
+                <input style="margin-left:10px;margin-top:100px" type="text" name="name" placeholder="Ad" />
+                <input style="margin-left:10px;margin-top:20px" type="email" name="email" placeholder="Email" />
+                <textarea style="width:177px;height:200px;margin-left:10px;margin-top:20px" name="message" placeholder="Mesaj"></textarea>
+                <button style="margin-left:70px;margin-right:auto;margin-top:50px" type="submit">Gönder</button>
+            </div>
+        </form>
+    </div>
+    <div style="width: 680px; height: 550px; float:left;">
+        <div style="border:2px solid #000; width:680px; height:550px; margin-left:2px;margin-top:2px">
+            <h3 align="center">Mesajlar</h3>
+            <ul>
+                @foreach (var mesaj in Model)
+                {
+                    <li>
+                        <b>Ad:</b> @mesaj.Name<br />
+                        <b>Email:</b>  @mesaj.Email <br />
+                        <b>Mesaj:</b>  @mesaj.Message
+                        <hr />
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
